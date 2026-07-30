@@ -4,7 +4,10 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "numpy>=2.5.1",
+    "pandas>=3.0.5",
+]
 
 [project.scripts]
 embodied-eval-lab = "embodied_eval_lab:main"
