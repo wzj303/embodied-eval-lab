@@ -42,7 +42,7 @@ def test_load_jsonl_dataset_returns_dataframe(tmp_path) -> None:
     assert len(dataframe) == 3
     assert list(dataframe.columns) == EXPECTED_COLUMNS
     assert dataframe.loc[0, "episode_id"] == "ep_test"
-    assert dataframe.loc[2, "done"] is True
+    assert bool(dataframe.loc[2, "done"]) is True
 
 
 def test_load_jsonl_dataset_preserves_list_fields(tmp_path) -> None:
