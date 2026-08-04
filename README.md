@@ -28,3 +28,19 @@ dataset = load_jsonl_dataset(Path("data/output/ep_0001.jsonl"))
 print(dataset.head())
 print(dataset.columns)
 ```
+
+## Validate dataset quality
+
+Validate a loaded dataset and generate a data quality report:
+
+```python
+from pathlib import Path
+
+from embodied_eval_lab.loader import load_jsonl_dataset
+from embodied_eval_lab.validation import validate_dataset
+
+dataset = load_jsonl_dataset(Path("data/output/ep_0001.jsonl"))
+report = validate_dataset(dataset)
+
+print(report)
+```
