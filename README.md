@@ -12,7 +12,7 @@ Generate three simulated robot episodes:
 
 ```powershell
 uv run python -m embodied_eval_lab.collector --episodes 3 --steps 20
-
+```
 
 ## Load JSONL datasets
 
@@ -27,3 +27,4 @@ dataset = load_jsonl_dataset(Path("data/output/ep_0001.jsonl"))
 
 print(dataset.head())
 print(dataset.columns)
+```
