@@ -21,3 +21,8 @@ frontend/dist/
 # Data
 data/raw/
 data/output/
+
+# Local SQLite databases
+data/*.db
+data/*.db-shm
+data/*.db-wal

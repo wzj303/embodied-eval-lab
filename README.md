@@ -74,3 +74,43 @@ write_metrics_report(
 
 print(metrics)
 ```
+
+## Persist evaluation reports
+
+Store evaluation metrics in SQLite and retrieve them later:
+
+```python
+from pathlib import Path
+
+from embodied_eval_lab.database import (
+    get_evaluation_run,
+    initialize_database,
+    save_evaluation_run,
+)
+from embodied_eval_lab.loader import load_jsonl_dataset
+from embodied_eval_lab.metrics import calculate_evaluation_metrics
+from embodied_eval_lab.validation import validate_dataset
+
+dataset_path = Path("data/output/ep_0001.jsonl")
+database_path = Path("data/evaluation.db")
+
+dataset = load_jsonl_dataset(dataset_path)
+quality_report = validate_dataset(dataset)
+
+if not quality_report["is_valid"]:
+    raise ValueError(f"Dataset validation failed: {quality_report}")
+
+metrics = calculate_evaluation_metrics(dataset)
+
+initialize_database(database_path)
+
+run_id = save_evaluation_run(
+    database_path=database_path,
+    run_name="simulated-baseline",
+    dataset_path=dataset_path,
+    report=metrics,
+)
+
+saved_run = get_evaluation_run(database_path, run_id)
+print(saved_run)
+```
