@@ -114,3 +114,25 @@ run_id = save_evaluation_run(
 saved_run = get_evaluation_run(database_path, run_id)
 print(saved_run)
 ```
+
+## Query evaluation runs with FastAPI
+
+Start the local API server:
+
+```powershell
+uv run fastapi dev src/embodied_eval_lab/api.py
+```
+
+Open the interactive API documentation:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+Available endpoints:
+
+```
+- `GET /health`
+- `GET /evaluation-runs`
+- `GET /evaluation-runs/{run_id}`
+```
