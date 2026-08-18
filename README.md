@@ -1,3 +1,5 @@
+[![CI](https://github.com/wzj303/embodied-eval-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/wzj303/embodied-eval-lab/actions/workflows/ci.yml)
+
 ## Data schema
 
 Experiment records use the JSONL format.
@@ -135,4 +137,17 @@ Available endpoints:
 - `GET /health`
 - `GET /evaluation-runs`
 - `GET /evaluation-runs/{run_id}`
+```
+
+## Continuous integration
+
+GitHub Actions runs the full test suite and Ruff checks on every push
+and pull request.
+
+Run the same checks locally before opening a pull request:
+
+```powershell
+uv sync --locked --all-groups
+uv run pytest
+uv run ruff check .
 ```
