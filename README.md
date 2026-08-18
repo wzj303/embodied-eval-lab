@@ -139,6 +139,35 @@ Available endpoints:
 - `GET /evaluation-runs/{run_id}`
 ```
 
+## View evaluation results
+
+Start the FastAPI service:
+
+```powershell
+uv run fastapi dev src/embodied_eval_lab/api.py
+```
+
+In another terminal, start the TypeScript dashboard:
+
+```powershell
+cd frontend
+npm install
+npm run dev
+```
+
+Open the dashboard at:
+
+```text
+http://127.0.0.1:5173
+```
+
+Build the production frontend assets:
+
+```powershell
+cd frontend
+npm run build
+```
+
 ## Continuous integration
 
 GitHub Actions runs the full test suite and Ruff checks on every push

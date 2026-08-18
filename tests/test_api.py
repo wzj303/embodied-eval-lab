@@ -102,3 +102,19 @@ def test_get_evaluation_run_rejects_invalid_id(
     response = client.get("/evaluation-runs/not-a-number")
 
     assert response.status_code == 422
+
+
+def test_api_allows_dashboard_origin(
+    api_client: tuple[TestClient, int],
+) -> None:
+    client, _ = api_client
+
+    response = client.get(
+        "/health",
+        headers={"Origin": "http://127.0.0.1:5173"},
+    )
+
+    assert response.status_code == 200
+    assert response.headers["access-control-allow-origin"] == (
+        "http://127.0.0.1:5173"
+    )

@@ -23,3 +23,6 @@ dev = [
     "pytest>=9.1.1",
     "ruff>=0.16.0",
 ]
+
+[tool.pytest.ini_options]
+addopts = "--basetemp=.pytest-tmp"
