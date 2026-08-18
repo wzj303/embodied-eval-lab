@@ -27,3 +27,8 @@ data/output/
 data/*.db
 data/*.db-shm
 data/*.db-wal
+
+
+# Pytest
+.pytest_cache/
+.pytest-tmp/
