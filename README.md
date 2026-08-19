@@ -180,3 +180,11 @@ uv sync --locked --all-groups
 uv run pytest
 uv run ruff check .
 ```
+
+## Run with Docker
+
+Build and start the full application:
+
+```bash
+docker compose up -d --build
+```
